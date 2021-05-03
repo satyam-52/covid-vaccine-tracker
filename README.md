@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Covid-19 Vaccine Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was made to help the people get details of any covid-19 vaccination center. It gets the data from Co-Win Public APIs. I have also added a custom script which will email the user if their is any vaccine available in his area. The script fetch data from the server in every 6 seconds and if it finds any available spots it sends a email to the user with all the details. For sending emails, it uses emailjs-com javascript library.
+
+## If anyone finds any new cool features that I can add feel free to start a pull request. 😄
 
 ## Available Scripts
 
