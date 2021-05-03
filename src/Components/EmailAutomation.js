@@ -6,10 +6,12 @@ import { css, jsx } from "@emotion/react";
 import React, { useEffect, useRef, useState } from "react";
 import { init } from "emailjs-com";
 import emailjs from "emailjs-com";
+import { useHistory } from "react-router";
 init("user_8kuNy7f1b4qE6qcAsLmoz");
 
 function EmailAutomation() {
   let intervalID = useRef(null);
+  const history = useHistory();
   const [pin, setPin] = useState("");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState(
@@ -36,6 +38,7 @@ function EmailAutomation() {
   const [date, setDate] = useState(minDate());
 
   const refreshPage = () => {
+    history.replace("/covid-vaccine-tracker");
     window.location.reload(false);
   };
 
@@ -51,11 +54,9 @@ function EmailAutomation() {
         // console.log(
         val.sessions?.map((session) => {
           if (session.available_capacity > 0) {
-            let message = `Vaccine are available at ${
-              session.name
-            }, address: ${session.address}, ${session.state_name}.${
-              session.pincode
-            }. The center-id is ${
+            let message = `Vaccine are available at ${session.name}, address: ${
+              session.address
+            }, ${session.state_name}.${session.pincode}. The center-id is ${
               session.center_id
             }. \n\nThe age limit to get vaccinated here is, ${
               session.min_age_limit
